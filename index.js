@@ -1,14 +1,5 @@
 
-const backend=fetch('./data.json').then((response)=>{
-    return response.json()
-}).then((data)=>{
-    window.localStorage.setItem('backend',data.backend)
-}).catch((err)=>{
-    console.log(err)
-})
-
-const backendURL=window.localStorage.getItem('backend')
-const root=window.localStorage.getItem('root')
+const backendURL="https://backend-webyapar.onrender.com/"
 
 const jwtToken = document.cookie.split('; ').find(row => row.startsWith('LOGIN_INFO')).split('=')[1];
 
@@ -16,13 +7,13 @@ const loggedIn = document.getElementsByClassName('loginRoute')[0]
 const signUp = document.querySelector('.signUpRoute')
 
 signUp.addEventListener('click',()=>{
-    window.location.href = root+"library.html";
+    window.location.href = "/webyapar-solution-frontend/library.html";
 })
 
 const loggedInFunctions=()=>{
     loggedIn.addEventListener('click',()=>{
         document.cookie=`LOGIN_INFO=; path=/; max-age=0;secure=true;`;
-        window.location.href = root+"login.html";
+        window.location.href = "/webyapar-solution-frontend/login.html";
     })
 
 }

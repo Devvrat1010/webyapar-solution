@@ -1,12 +1,7 @@
 const formData=document.getElementsByClassName('authForm')[0]
 const submitButton=document.getElementById('submit-button')
 const message=document.getElementById('message')
-const backendURL=window.localStorage.getItem('backend')
-
-
-const root=window.localStorage.getItem('root')
-
-
+const backendURL="https://backend-webyapar.onrender.com/"
 submitButton.addEventListener('click',async (e)=>{
     e.preventDefault()
     const email=formData.email.value
@@ -31,7 +26,7 @@ submitButton.addEventListener('click',async (e)=>{
             return
         }
         document.cookie=`LOGIN_INFO=${res.token}; path=/; max-age=${60 * 60 * 24 * 14};secure=true;`;
-        window.location.href = root+"index.html";
+        window.location.href = "/webyapar-solution-frontend/index.html";
     })
     .catch((err)=>{
         console.log(err)
