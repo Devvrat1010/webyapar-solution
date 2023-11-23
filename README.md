@@ -1,7 +1,7 @@
 ﻿# webyapar-solution-frontend
-# Your Website Name
+# CanvasCascade
 
-This repository contains the source code for [Your Website Name], a web application built with Express.js and hosted on GitHub with the backend deployed on Render.
+This repository contains the source code for [CanvasCascade], a web application built with Express.js and hosted on GitHub with the backend deployed on Render.
 
 ## Getting Started
 
@@ -15,19 +15,13 @@ This repository contains the source code for [Your Website Name], a web applicat
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/your-username/your-repository.git
+    git clone https://github.com/Devvrat1010/webyapar-solution-frontend.git
     ```
 
 2. Navigate to the project directory:
 
     ```bash
     cd your-repository
-    ```
-
-3. Install dependencies:
-
-    ```bash
-    npm install
     ```
 
 ## Usage
@@ -39,11 +33,24 @@ This repository contains the source code for [Your Website Name], a web applicat
     ```
    
 2. Install dependencies:
-
     ```bash
     npm install
     ```
+    
 3. To run the backend of the application in development mode, use the following command:
+    ```bash
+    npm start
+    ```
+    
+4. Api endpoint :
+    ```bash
+    http://localhost:3000/
+    ```
 
-```bash
-npm start
+## Deployment
+
+The backend of this application is deployed on [Render](https://render.com/). Ensure that you have the necessary configurations set up on your Render account.
+
+## Contributing
+
+If you'd like to contribute to this project, please follow the [contribution guidelines](CONTRIBUTING.md).
