@@ -27,7 +27,7 @@ submitButton.addEventListener('click',async (e)=>{
             return
         }
         document.cookie=`LOGIN_INFO=${res.token}; path=/; max-age=${60 * 60 * 24 * 14};secure=true;`;
-        window.location.href = "index.html";
+        window.location.href = root+"index.html";
     })
     .catch((err)=>{
         console.log(err)

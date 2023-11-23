@@ -43,7 +43,7 @@ submitButton.addEventListener('click',async (e)=>{
             }
             document.cookie=`LOGIN_INFO=${data.token}; path=/; max-age=${maxAge*1000};secure=true;`;
             alert(data.message.username+" is registered successfully")
-            window.location.href = ""
+            window.location.href = root+""
         }).catch((err)=>{
             message.innerText=err+"*"
             console.log(err)

@@ -16,13 +16,13 @@ const loggedIn = document.getElementsByClassName('loginRoute')[0]
 const signUp = document.querySelector('.signUpRoute')
 
 signUp.addEventListener('click',()=>{
-    window.location.href = "library.html";
+    window.location.href = root+"library.html";
 })
 
 const loggedInFunctions=()=>{
     loggedIn.addEventListener('click',()=>{
         document.cookie=`LOGIN_INFO=; path=/; max-age=0;secure=true;`;
-        window.location.href = "login.html";
+        window.location.href = root+"login.html";
     })
 
 }
