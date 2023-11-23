@@ -3,6 +3,10 @@ const submitButton=document.getElementById('submit-button')
 const message=document.getElementById('message')
 const backendURL=window.localStorage.getItem('backend')
 
+
+const root=window.localStorage.getItem('root')
+
+
 console.log(backendURL)
 
 submitButton.addEventListener('click',async (e)=>{

@@ -3,6 +3,10 @@ const submitButton=document.getElementById('submit-button')
 const message=document.getElementById('message')
 const backendURL=window.localStorage.getItem('backend')
 
+
+const root=window.localStorage.getItem('root')
+
+
 submitButton.addEventListener('click',async (e)=>{
     e.preventDefault()
     const email=formData.email.value

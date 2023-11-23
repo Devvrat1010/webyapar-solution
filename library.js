@@ -3,6 +3,8 @@ const fileInput = document.getElementById("file");
 const img = document.getElementById("img");
 const backendURL=window.localStorage.getItem('backend')
 
+const root=window.localStorage.getItem('root')
+
 let loggedIn=false
 // get request in js
 const allImages=document.getElementsByClassName('images')[0]
