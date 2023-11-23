@@ -1,0 +1,268 @@
+  @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700;800&family=Poppins:wght@200;300;400;500;600;700;800;900&family=Ubuntu:wght@500&display=swap');
+
+/* *************************************************** Tag Selector ************************************************************* */
+
+body{
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f5f5f5;
+    padding: 0;
+    margin: 0;
+}
+
+label{
+    width: 100%;
+    font-weight:600;
+    opacity: 50%;
+    transform: translate(-10px,10px);
+}
+
+a{
+    text-decoration: none;
+    width: fit-content;
+}
+
+hr{
+    width: 100%;
+    border-width: 0;
+    opacity: 20%;
+    border-top: 0.3px solid #3e4242;
+    transform: translateY(-10px);
+}
+/* *************************************************** class Selector ************************************************************* */
+
+.aboutUs{
+    font-family: "Poppins", sans-serif;
+    font-size: 52px;
+    width: 33%;
+    margin: 50px 0 0 100px;
+}
+
+.album{
+    position: absolute;
+    right: 150px;
+    top:150px;
+    height: 700px;
+
+    border-radius: 50px 0 0 0;
+}
+.authForm{
+    box-shadow: 1px 1px 2px 1px rgba(173, 173, 173, 0.75);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: left;
+    padding: 20px 40px 20px 40px;
+    gap:10px;
+    width: 300px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin: 0 auto 0 auto;
+}
+
+.authForm:focus{
+    outline: none;
+}
+
+.authPages{
+    width: 100%;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    gap:40px;
+}
+
+.description{
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    width: 33%;
+    opacity: 70%;
+    margin: 40px 0 0 100px;
+}
+
+/* font-family: 'Dosis', sans-serif;
+font-family: 'Poppins', sans-serif; */
+.mainImage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ee6c6c;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    height: 100px;
+    transition-duration: 300ms;
+    width:fit-content;
+    margin: 10px auto 10px auto;
+}
+
+.expand{
+    width:fit-content;
+    transition-duration: 300ms;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    height: 400px;
+}
+
+.formHeading{
+    font-size: 30px;
+    opacity: 80%;
+    font-family: 'poppins', sans-serif;
+
+    font-weight: 700;
+}
+
+
+.getStarted{
+    background-color: #0F49AE;
+    color:rgb(255, 255, 255);
+    font-weight: 200;
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    text-align: center;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 100px 0 0 100px;
+    transition-duration: 300ms;
+}
+
+.imageFunctions{
+    background-color: #f05a5a;
+    border-width: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: fit-content;
+    margin: 0 auto 0 auto;
+    padding: 5px 10px 5px 10px;
+    font-size:15px ;
+}
+
+
+.getStarted:hover{
+    background-color: #0a3279;
+    transition-duration: 300ms;
+}
+
+.inputField{
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border-width: 0;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.inputField:focus{
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: rgb(108, 197, 238);
+}
+
+
+
+
+
+
+.imageFunctionsContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+.images{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+}
+
+.imgContainer{
+    background-color: #ec8888;
+    border-style: solid;
+    border-width: 5px;
+    border-color: rgb(146, 102, 102);
+    padding: 5px 20px 5px 20px;
+    border-radius: 10px;
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.index{
+    background-color: #B9D0F9;
+    height: 100vh;
+}
+
+.loginButton{
+    transform: translateY(10px);
+}
+
+.library{
+    padding: 10px;
+}
+
+.message{
+    margin:auto;
+    width: fit-content  ;
+    text-align: center;
+    font-family: "Popins", sans-serif;
+    font-size: 40px;
+    color: #3e4242;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 50px 0px 100px;
+    gap:30px;
+    height: fit-content;
+
+}
+
+
+
+.navbarButton{
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 200;
+    text-decoration: none;
+    background: transparent;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 5px;
+    border-width: 0;
+}
+
+.navbarButton:hover{
+    cursor: pointer;
+    color: #969696;
+    transition-duration: 300ms;
+}
+
+.websiteName{
+    font-size: 45px;
+    font-weight: 600;
+    color: #0D46A7;
+    font-style: italic;
+}
+
+/* *************************************************** id Selector ************************************************************* */
