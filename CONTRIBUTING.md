@@ -33,8 +33,5 @@ Thank you for considering contributing to our project! Please follow these guide
 
 ## Contact
 
-If you have questions or need assistance, feel free to contact us through [rathodde.
+If you have questions or need assistance, feel free to contact us through [rathoddevratsingh777@gmail.com].
 
-## License
-
-By contributing, you agree that your contributions will be licensed under the [MIT License](LICENSE).
