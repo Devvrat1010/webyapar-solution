@@ -33,8 +33,17 @@ This repository contains the source code for [Your Website Name], a web applicat
 ## Usage
 
 ### Development
+1. Clone backend repository:
+   ```bash
+   git clone https://github.com/Devvrat1010/webyapar-solution-backend.git
+    ```
+   
+2. Install dependencies:
 
-To run the application in development mode, use the following command:
+    ```bash
+    npm install
+    ```
+3. To run the backend of the application in development mode, use the following command:
 
 ```bash
-npm run dev
+npm start
