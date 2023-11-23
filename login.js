@@ -1,5 +1,8 @@
 const formData=document.getElementsByClassName('authForm')[0]
 const submitButton=document.getElementById('submit-button')
+const message=document.getElementById('message')
+const backendURL=window.localStorage.getItem('backend')
+
 submitButton.addEventListener('click',async (e)=>{
     e.preventDefault()
     const email=formData.email.value
@@ -9,7 +12,7 @@ submitButton.addEventListener('click',async (e)=>{
         password: password
     }
     const maxAge=3*24*60*60
-    fetch('http://localhost:3000/loginUser', {
+    fetch(backendURL+'loginUser', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -19,9 +22,12 @@ submitButton.addEventListener('click',async (e)=>{
         response.json()
     )
     .then((res)=>{
+        if (res.error){
+            message.innerText=res.error+"*"
+            return
+        }
         document.cookie=`LOGIN_INFO=${res.token}; path=/; max-age=${60 * 60 * 24 * 14};secure=true;`;
-        window.location.href = "http://127.0.0.1:5500/frontend/index.html";
-        
+        window.location.href = "/index.html";
     })
     .catch((err)=>{
         console.log(err)

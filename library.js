@@ -1,6 +1,7 @@
 const reader = new FileReader();
 const fileInput = document.getElementById("file");
 const img = document.getElementById("img");
+const backendURL=window.localStorage.getItem('backend')
 
 let loggedIn=false
 // get request in js
@@ -8,18 +9,24 @@ const allImages=document.getElementsByClassName('images')[0]
 
 const currentUser=localStorage.getItem('username')
 
-// console.log(currentUser,"currentUser")
+if (currentUser){
+    const username=document.getElementById('username')
+    username.innerText=currentUser
+    localStorage.setItem('username',currentUser)
+
+    const loggedIn=document.getElementsByClassName('loginRoute')[0]
+    loggedIn.innerText=""
+
+    const signUp=document.querySelector('.signUpRoute')
+    signUp.innerText=""
+}
 
 const getImage = async () => {
 
-    const data=await fetch('http://localhost:3000/getImage?username='+currentUser)
+    const data=await fetch(backendURL+'getImage?username='+currentUser)
     const check=await data.json()
     const im=check[0].image
-    // for (let i=0;i<3;i++){
-    //     console.log(check[0].image[i])
-    //     im.push(check[0].image[i])
-    // }
-    // console.log(im,"imaaaaa")
+
     im.forEach(element => {
         const img=document.createElement('img')
         const imgContainer=document.createElement('div')
@@ -38,52 +45,49 @@ const imageFunctions=(imgContainer,img)=>{
     imageFunctionsContainer.className='imageFunctionsContainer'
     const imageRotate=document.createElement('button')
     const imageExpand=document.createElement('button')
-    const imageDelete=document.createElement('button')
+    // const imageDelete=document.createElement('button')
 
     imgContainer.appendChild(imageFunctionsContainer)
 
     imageFunctionsContainer.appendChild(imageRotate)
     imageFunctionsContainer.appendChild(imageExpand)
-    imageFunctionsContainer.appendChild(imageDelete)
+    // imageFunctionsContainer.appendChild(imageDelete)
 
     imageRotate.className='imageFunctions'
-    imageRotate.classList.add('getStarted')
     imageRotate.innerText='rotate'
     
     
     imageExpand.className='imageFunctions'
-    imageExpand.classList.add('getStarted')
     imageExpand.innerText='expand'
     
-    imageDelete.className='imageFunctions'
-    imageDelete.classList.add('getStarted')
-    imageDelete.innerText='delete'
+    // imageDelete.className='imageFunctions'
+    // imageDelete.innerText='delete'
     let num=0
     expandOnClick(img,imageExpand,imgContainer)
     rotateOnClick(img,imageRotate,num)
-    deleteOnClick(img,imageDelete,imgContainer)
+    // deleteOnClick(img,imageDelete,imgContainer)
 
 }
 
-const deleteOnClick=(img,imageDelete,imgContainer)=>{
-    imageDelete.addEventListener('click',()=>{
-        // imgContainer.remove()
-        fetch('http://localhost:3000/deleteImage', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({image:img.src})
-        }).then((response)=>{
-            return response.json()
-        }).then((data)=>{
-            console.log(data,"data")
-            imgContainer.remove()
-        }).catch((err)=>{
-            console.log(err)
-        })
-    })
-}
+// const deleteOnClick=(img,imageDelete,imgContainer)=>{
+//     imageDelete.addEventListener('click',()=>{
+//         // imgContainer.remove()
+//         fetch(backendURL+'deleteImage', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({image:img.src})
+//         }).then((response)=>{
+//             return response.json()
+//         }).then((data)=>{
+//             console.log(data,"data")
+//             imgContainer.remove()
+//         }).catch((err)=>{
+//             console.log(err)
+//         })
+//     })
+// }
 
 const rotateOnClick=(img,imageRotate,num)=>{
     imageRotate.addEventListener('click',()=>{
@@ -97,6 +101,7 @@ const rotateOnClick=(img,imageRotate,num)=>{
 const expandOnClick=(img,imageExpand,imgContainer)=>{
     imageExpand.addEventListener('click',()=>{
         img.classList.toggle('expand')
+        imgContainer.classList.toggle('expand')
     })
 }
 
@@ -105,7 +110,7 @@ const postImage = async (imgData) => {
         "image":imgData,
         "username":currentUser
     }
-    const res = await fetch("http://localhost:3000/saveImage", {
+    const res = await fetch(backendURL+"saveImage", {
         method: "POST",
         headers: {
             'Accept': 'application/json',

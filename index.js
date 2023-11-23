@@ -1,17 +1,27 @@
+
+const backend=fetch('./data.json').then((response)=>{
+    return response.json()
+}).then((data)=>{
+    window.localStorage.setItem('backend',data.backend)
+}).catch((err)=>{
+    console.log(err)
+})
+
+const backendURL=window.localStorage.getItem('backend')
+
 const jwtToken = document.cookie.split('; ').find(row => row.startsWith('LOGIN_INFO')).split('=')[1];
 
 const loggedIn = document.getElementsByClassName('loginRoute')[0]
 const signUp = document.querySelector('.signUpRoute')
 
 signUp.addEventListener('click',()=>{
-    window.location.href = "http://localhost:5500/frontend/library.html";
+    window.location.href = "/library.html";
 })
 
 const loggedInFunctions=()=>{
-    
     loggedIn.addEventListener('click',()=>{
         document.cookie=`LOGIN_INFO=; path=/; max-age=0;secure=true;`;
-        window.location.href = "http://localhost:5500/frontend/login.html";
+        window.location.href = "/login.html";
     })
 
 }
@@ -21,12 +31,10 @@ if (jwtToken){
     loggedIn.innerText="Logout"
     signUp.childNodes[1].innerText="Library"
     loggedInFunctions()
-    // signUpFunctions()
 }
 
-fetch('http://localhost:3000/checkUser', {
+fetch(backendURL+'checkUser', {
     method: 'GET',
-    credentials: 'include', // or 'same-origin' if same domain
     headers: {
         'Authorization': jwtToken , 
         'Content-Type': 'application/json',
@@ -37,4 +45,7 @@ fetch('http://localhost:3000/checkUser', {
     const username=document.getElementById('username')
     username.innerText=data.data[0].username
     localStorage.setItem('username',data.data[0].username)
-}) 
+}).catch((err)=>{
+    loggedIn.innerText="Login"
+    console.log(err,"not logged in i guess")
+})

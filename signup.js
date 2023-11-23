@@ -1,5 +1,10 @@
 const formData=document.getElementsByClassName('authForm')[0]
 const submitButton=document.getElementById('submit-button')
+const message=document.getElementById('message')
+const backendURL=window.localStorage.getItem('backend')
+
+console.log(backendURL)
+
 submitButton.addEventListener('click',async (e)=>{
     e.preventDefault()
     const username=formData.username.value
@@ -16,9 +21,13 @@ submitButton.addEventListener('click',async (e)=>{
             email: email,
             password: password
         }
+        if (username.length<1 || password.length<1 || email.length<1){
+            message.innerText="Please fill all the fields"  
+            return
+        }
+        console.log(data)
         const maxAge=3*24*60*60
-        
-        fetch('http://localhost:3000/saveUser', {
+        fetch(backendURL+'saveUser', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -27,10 +36,16 @@ submitButton.addEventListener('click',async (e)=>{
         }).then((response)=>{
             return response.json()
         }).then((data)=>{
+            if (data.error){
+                message.innerText=data.error+"*"
+                throw new Error(data.error)
+                return
+            }
             document.cookie=`LOGIN_INFO=${data.token}; path=/; max-age=${maxAge*1000};secure=true;`;
             alert(data.message.username+" is registered successfully")
-            window.location.href = "http://127.0.0.1:5500/frontend/"
+            window.location.href = "/"
         }).catch((err)=>{
+            message.innerText=err+"*"
             console.log(err)
         })
     }
