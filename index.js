@@ -8,6 +8,7 @@ const backend=fetch('./data.json').then((response)=>{
 })
 
 const backendURL=window.localStorage.getItem('backend')
+const root=window.localStorage.getItem('root')
 
 const jwtToken = document.cookie.split('; ').find(row => row.startsWith('LOGIN_INFO')).split('=')[1];
 
@@ -15,13 +16,13 @@ const loggedIn = document.getElementsByClassName('loginRoute')[0]
 const signUp = document.querySelector('.signUpRoute')
 
 signUp.addEventListener('click',()=>{
-    window.location.href = "/library.html";
+    window.location.href = "library.html";
 })
 
 const loggedInFunctions=()=>{
     loggedIn.addEventListener('click',()=>{
         document.cookie=`LOGIN_INFO=; path=/; max-age=0;secure=true;`;
-        window.location.href = "/login.html";
+        window.location.href = "login.html";
     })
 
 }

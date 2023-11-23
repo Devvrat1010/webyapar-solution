@@ -1,3 +1,4 @@
 {
-    "backend":"https://backend-webyapar.onrender.com/"
+    "backend":"https://backend-webyapar.onrender.com/",
+    "root":"/webyapar-solution-frontend/"
 }
