@@ -10,9 +10,10 @@ Thank you for considering contributing to our project! Please follow these guide
 
    ```bash
    git clone https://github.com/your-username/your-repository.git
-git checkout -b feature/your-feature
-git commit -m "Add your descriptive commit message"
-git push origin feature/your-feature
+   git checkout -b feature/your-feature
+   git commit -m "Add your descriptive commit message"
+   git push origin feature/your-feature
+   ```
 
 
 ## Code Style
@@ -32,7 +33,7 @@ git push origin feature/your-feature
 
 ## Contact
 
-If you have questions or need assistance, feel free to contact us through [email@example.com].
+If you have questions or need assistance, feel free to contact us through [rathodde.
 
 ## License
 
